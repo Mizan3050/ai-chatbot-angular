@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal, Signal } from '@angular/core';
-import { enviroment } from '../../../environment/evironment.prod';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { catchError, of, tap } from 'rxjs';
-import { JsonPipe } from '@angular/common';
+import { enviroment } from '../../../environment/evironment.prod';
 
 interface Document {
   name: string;
@@ -18,8 +17,7 @@ interface DocumentList {
   selector: 'app-sources',
   standalone: true,
   templateUrl: './sources.component.html',
-  styleUrls: ['./sources.component.scss'],
-  imports: [JsonPipe]
+  styleUrls: ['./sources.component.scss']
 })
 export class SourcesComponent {
 
@@ -42,7 +40,7 @@ export class SourcesComponent {
       this.isUploading.set(false)
       return of([] as unknown as DocumentList)
     })
-  ), { initialValue: [] as unknown as DocumentList });
+  ), { initialValue: {documents: []} as unknown as DocumentList });
 
   downloadPdf(fileName: string) {
     const encodedFilename = encodeURIComponent(fileName);
