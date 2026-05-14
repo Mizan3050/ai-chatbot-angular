@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "my-first-app": {
+    "ai-chatbot-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
