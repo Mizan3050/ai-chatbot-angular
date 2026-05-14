@@ -1,0 +1,39 @@
+<section class="content-card">
+  <div class="header">
+    <div>
+      <h1>Retrieval Debug</h1>
+      <p>View retrieval details for the last query</p>
+    </div>
+
+    <button class="primary-btn clickable" [routerLink]="'/chat'">Back to Chat</button>
+  </div>
+
+  <div class="query-box">
+    <h4>Query</h4>
+    <p>"What is the internship duration mentioned in the policy?"</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Score</th>
+        <th>Document</th>
+        <th>Page</th>
+        <th>Chunk Preview</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (item of results; track item.rank) {
+        <tr>
+          <td>{{ item.rank }}</td>
+          <td>{{ item.score }}</td>
+          <td>{{ item.doc }}</td>
+          <td>{{ item.page }}</td>
+          <td>{{ item.preview }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

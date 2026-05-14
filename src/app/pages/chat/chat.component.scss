@@ -1,0 +1,134 @@
+@use '../../styles/shared';
+
+:host {
+  width: 100%;
+  height: calc(100vh - 40px);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  button {
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid #e9edf5;
+    background: #fff;
+    padding-inline: 18px;
+  }
+}
+
+.messages {
+  height: calc(100vh - 246px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.message {
+  display: flex;
+
+  &.user {
+    justify-content: flex-end;
+
+    .bubble {
+      background: #f0eaff;
+    }
+  }
+
+  .bubble {
+    max-width: 60%;
+    padding: 18px;
+    border-radius: 18px;
+    background: #f8fafc;
+  }
+}
+
+.chat-input {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+
+  input {
+    flex: 1;
+    height: 58px;
+    border-radius: 16px;
+    border: 1px solid #e6ebf3;
+    padding-inline: 20px;
+  }
+
+  button {
+    width: 58px;
+    border: 0;
+    border-radius: 16px;
+    background: #6d4aff;
+    color: white;
+  }
+}
+
+.empty-chat {
+  height: calc(100vh - 260px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.bot-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    135deg,
+    #6d4aff,
+    #9b8cff
+  );
+  font-size: 42px;
+  margin-bottom: 24px;
+  color: white;
+  box-shadow: 0 20px 50px rgba(109, 74, 255, .25);
+}
+
+.empty-chat h1 {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+.empty-chat p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #6b7280;
+  max-width: 520px;
+}
+
+.suggestions {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.suggestions button {
+  height: 52px;
+  padding-inline: 22px;
+  border-radius: 16px;
+  border: 1px solid #ebeef5;
+  background: white;
+  cursor: pointer;
+  transition: .2s ease;
+  font-weight: 500;
+}
+
+.suggestions button:hover {
+  border-color: #7c5cff;
+  background: #f7f4ff;
+  transform: translateY(-2px);
+}

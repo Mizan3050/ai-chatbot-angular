@@ -1,0 +1,32 @@
+<aside class="sidebar">
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <h3>AI Knowledge</h3>
+      <p>Chatbot</p>
+    </div>
+  </div>
+
+  <nav>
+    @for (item of menuItems; track item.key) {
+      <button
+        class="nav-item"
+        [class.active]="active === item.key"
+        [routerLink]="['/', item.key]"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined">{{ item.icon }}</span>
+        {{ item.label }}
+      </button>
+    }
+  </nav>
+  <div class="footer">
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100" alt="" />
+      <div>
+        <h4>Meezan Shaikh</h4>
+        <p>Admin</p>
+      </div>
+    </div>
+  </div>
+</aside>

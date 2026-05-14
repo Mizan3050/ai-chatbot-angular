@@ -1,0 +1,23 @@
+<section class="content-card source-layout">
+      <h2>Documents</h2>
+    @if (isUploading()) {
+    <div class="upload-loader">
+      <div class="spinner"></div>
+
+      <h3>Fetching documents...</h3>
+
+      <p>Please wait while we load your files</p>
+    </div>
+  }
+  <div class="left-panel">
+    @for (doc of sources().documents; track doc) {
+      <div class="doc-tile active clickable" (click)="onPreview(doc.name)">
+        <p>📄 {{ doc.name }}</p>
+      </div>
+    }
+  </div>
+      @if (!sources().documents?.length && !isUploading()) {
+      <div class="empty-state">No documents uploaded yet</div>
+    }
+
+</section>

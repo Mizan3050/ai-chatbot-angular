@@ -1,0 +1,59 @@
+<section class="content-card">
+  <div class="header">
+    <div>
+      <h1>Upload Documents</h1>
+      <p>Upload PDF files to build your knowledge base</p>
+    </div>
+  </div>
+
+  <input #fileInput type="file" hidden multiple accept=".pdf" (change)="onFileSelected($event)" />
+
+  <div
+    class="upload-box"
+    [class.dragging]="isDragging"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+  >
+    <div class="upload-icon">☁</div>
+
+    <h3>Drag and drop PDF files here</h3>
+
+    <span>or</span>
+
+    <button type="button" (click)="triggerFileInput(fileInput)">Choose Files</button>
+
+    <p>Supports multiple PDF files</p>
+  </div>
+
+  <div class="docs-list">
+    @if (!documents().length) {
+      <div class="empty-state">No documents uploaded yet</div>
+    }
+
+    @for (doc of documents(); track doc; let i = $index) {
+      <div class="doc-item">
+        <div class="left">
+          <div class="file-icon">📄</div>
+
+          <div>
+            <h4>{{ doc.name }}</h4>
+
+            <p>
+              {{ doc.size }}
+              • Uploaded {{ doc.uploadedAt }}
+            </p>
+          </div>
+        </div>
+
+        <div class="right">
+          <span class="status">
+            {{ doc.status }}
+          </span>
+
+          <button class="delete-btn" (click)="removeDocument(i)">✕</button>
+        </div>
+      </div>
+    }
+  </div>
+</section>
